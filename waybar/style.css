@@ -1,0 +1,159 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Oxygen-Sans";
+    font-size: 18px;
+    min-height: 0;
+
+}
+window#waybar {
+    background: rgba(0,0,0,0.4);
+    border-radius:20px;
+    margin-top: 10px;
+
+}
+    .modules-left {
+   margin: 0 10 0 10;
+}
+
+
+.modules-center {
+    padding:5px;
+    margin:3 0 3 0;
+    border-radius:10px;
+    background: rgba(0,0,0,.5);
+    box-shadow: 0px 0px 5px rgba(173,235, 246, .1);
+    }
+/*
+#mpris{
+	padding: 3px;
+	margin:1 0 0 0;
+    border-radius:3px;
+   
+}
+*/
+.modules-right {
+	margin: 0 5 0 10;
+}
+#custom-poweroff{
+	color: #adf6dd;
+	font-weight: bold;
+	font-family: "Oxygen-Sans";
+	font-size: 18px;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+#workspaces{
+	margin-left: 3px;
+}
+#workspaces button {
+    color: #adf6dd;
+    font-size: 20px;
+}
+#workspaces button:hover{
+	background: rgba(0,0,0,0);
+}
+#workspaces button.active {
+	color:#f6adc6;
+	
+}
+#workspaces button.focused {
+    color: #f6adc6;
+}
+
+
+ #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode, #disk{
+    font-weight: bold;
+    color: #adf6dd;
+    margin-right: 10px;
+}
+
+#clock{
+    font-weight: bold;
+    color: #adf6dd;
+    margin-right:7px;
+ }
+#mpris{
+	font-weight: bold;
+	color: #f6adc6;
+	margin-bottom: 2px;
+}
+
+
+
+#battery {
+	border-radius: 10px;
+}
+
+#battery icon {
+    color: red;
+}
+
+#battery.charging {
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+}
+
+#memory {
+}
+
+#network {
+}
+
+#network.disconnected {
+    background: #f53c3c;
+}
+
+#pulseaudio {
+}
+
+#pulseaudio.muted {
+}
+
+#custom-reload{
+	color: #adf6dd;
+	font-weight: bold;
+	font-family: "Oxygen-Sans";
+	margin-left: 2px;
+	margin-top: 1px;
+	margin-right: 3px;
+
+}
+#custom-poweroff{
+	color: #adf6dd;
+	font-weight: bold;
+	font-family: "Oxygen-Sans";
+	font-size: 18px;
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-bottom: 1px;
+}
+#custom-reboot{
+	color: #adf6dd;
+	font-weight: bold;
+	font-family: "Oxygen-Sans";
+	font-size: 20px;
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-top:1px;
+}
+#tray {
+}
+

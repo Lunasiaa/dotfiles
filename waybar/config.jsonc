@@ -1,0 +1,112 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar at the bottom of your screen
+    "height": 45, // Waybar height
+    "width": 1900, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["custom/poweroff", "custom/reboot", "custom/reload", "clock", "battery",  "mpris"],
+    "modules-center":["hyprland/workspaces"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "disk"],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+	 "persistent-workspaces": {
+                "*": [1,2,3,4,5]
+            },
+        "format-icons": {
+            "urgent": " ",
+            "focused": " ",
+            "default": " "
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "disk":{
+	   "path":"/home",
+	   "interval":30,
+	   "format":"   {specific_free:0.2f}gb/{specific_total:0.2f}gb",
+	   "unit":"GB"
+    },
+    "tray": {
+        "icon-size": 30,
+        "spacing": 10
+    },
+    "clock": {
+	"format": "{:%H:%M}",
+	"format-alt": "{:%a. %d/%m/%Y}",
+	"interval":1
+    },
+    "cpu": {  
+        "format": "  {usage}% "
+    },
+    "memory": {
+        "format": "   {used:0.1f}gb/{total:0.1f}gb"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+    "network": {
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "format-wifi": " {bandwidthUpBits}   {bandwidthDownBits} ",
+        "format-ethernet":" {bandwidthUpBits}   {bandwidthDownBits} ",
+        "format-disconnected": "no internet",
+        "tooltip-format-disconnected": "disconnected",
+        "tooltip-format-wifi": " {essid}    {signalStrength}% " ,
+        "tooltip-format-ethernet": "{ifname} 󰈁"
+    },
+    "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{icon}  {volume}% ",
+        "format-bluetooth": " {volume}% ",
+        "format-muted": "  ",
+	"format-icons": {
+            "headphones": " ",
+            "handsfree": "",
+            "headset": "",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "mpris":{
+	    "format": "{status_icon}{dynamic}",
+	    "format-paused:": "{status_icon}{dynamic}",
+	    "status-icons":{
+		    "playing":"",
+		    "paused":""
+	    },
+	    "dynamic-len": 64,
+	    "dynamic-order":["title", "artist", "position", "length"],
+	    "dynamic-importance-order":["title", "artist",  "position", "length"],
+	    "interval":1
+
+    },
+    "custom/reload" :{
+	    "format": " ",
+	    "tooltip-format" : "write waybar changes",
+	    "on-click": "$HOME/.config/waybar/reload.sh"
+    },
+    "custom/poweroff":{
+	    "format": "⏻ ",
+	    "tooltip-format": "shutoff",
+	    "on-click": "$HOME/.config/waybar/shutoff.sh"
+    },
+    "custom/reboot":{
+	    "format": " ",
+	    "tooltip-format": "reboot system",
+	    "on-click" : "$HOME/.config/waybar/shutoff.sh"
+    }
+}
